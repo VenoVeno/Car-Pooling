@@ -1,0 +1,7 @@
+-Create responsive webpages using html5 and css3
+-Registartion form and validate using jquery
+-Form Submsission using ajax
+-Construct a json structure for the application
+-Use jquery for parsing
+-Create a single webpage application using bootstrap and jquery
+-Design the user interface

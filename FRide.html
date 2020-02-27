@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Find a Ride</title>
+
+<!--
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB1dmhOrisntNBAZMD7WHhlB5JK7afXiPY"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/geocomplete/1.7.0/jquery.geocomplete.min.js"></script>
+-->
+
+    <link rel="stylesheet" href="jquery-ui.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <style media="screen">
+      #fixedbutton {
+        position: fixed;
+        bottom: -4px;
+        right: 10px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light d-flex">
+
+        <a class="navbar-brand mr-auto p-2" href="LoginChoice.html">
+            <img src="Home.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Home </small>
+        </a>
+
+        <a class="navbar-brand" href="#">
+            <img src="Search.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Find a Ride</small>
+        </a>
+
+        <a class="navbar-brand" href="Oride.html">
+            <img src="Offer.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Offer a Ride</small>
+        </a>
+
+        <a class="navbar-brand" href="LoginChoice.html">
+            <img src="Login.jpg" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small>  &nbsp   Login </small>
+        </a>
+
+        <a class="navbar-brand" href="Signup.html">
+            <img src="Signup.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> &nbsp  Sign Up </small>
+        </a>
+
+        <a class="navbar-brand" href="Offers.html">
+            <img src="Specialoffer.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> &nbsp  Offers</small>
+        </a>
+
+    </nav>
+
+    <section class="container-fluid">
+        <section class="row justify-content-center">
+            <section class="col-12 col-sm-6 col-md-3">
+                <img src="Logo.webp" class="rounded mx-auto d-block" />
+
+                    <form class="form-container" id="frideform" name="find" method="post" onsubmit="return findride()">
+
+                      <div class="form-group" id="FromPlace">
+                        <input type="text" class="form-control" id="InputRide1" placeholder="From where do You Want do Yo want to Leave">
+                      </div>
+
+                      <div class="form-group" id="ToPlace">
+                         <input type="text" class="form-control" id="InputRide2" placeholder="Where do yo want to Go">
+                      </div>
+
+                      <button class="form-group btn btn-primary btn-block">Find Ride Availbility</button>
+
+                    </form>
+
+                    <form class="form-container text-center form-center align-items-center">
+
+                      <div class="form-group">
+                          <table class="table table-bordered table-hover" id="lists">
+                            <thead class="thead-light"></thead>
+                            <tbody></tbody>
+                          </table>
+                      </div>
+
+                      <div class="col-12" id="fooBar">
+
+                      </div>
+
+                    </form>
+
+                    <div id="mybutton">
+                        <button class="btn btn-primary" id ="fixedbutton" data-toggle="tooltip" title="Login to Proceed" data-placement="bottom" onclick="location.href = 'Comment.html';">Leave Comment</button>
+                    </div>
+
+            </section>
+         </section>
+     </section>
+
+<!--
+     <script>
+      $("#InputRide1").geocomplete();
+     </script>
+-->
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="jquery-ui.js"></script>
+    <script type="text/javascript" src="Login.js"></script>
+
+    <script>
+    $(function() {
+        var availableTags = [
+          "Ariyalur",
+          "Chennai",
+          "Coimbatore",
+          "Cuddalore",
+          "Dharmapuri",
+          "Dindigul",
+          "Erode",
+          "Kanchipuram (Kancheepuram)",
+          "Kanniyakumari (Kanyakumari)",
+          "Karur",
+          "Krishnagiri",
+          "Madurai",
+          "Nagapattinam",
+          "Namakkal",
+          "Pudukkottai",
+          "Perambalur",
+          "Ramanathapuram",
+          "Salem",
+          "Sivaganga",
+          "Thanjavur",
+          "Theni",
+          "The Nilgiris",
+          "Thiruvallur (Tiruvallur)",
+          "Thiruvarur (Tiruvarur)",
+          "Thoothukkudi",
+          "Tirunelveli",
+          "Tiruchirappalli",
+          "Tiruppur",
+          "Tiruvannamalai",
+          "Vellore",
+          "Viluppuram",
+          "Virudhunagar",
+        ];
+        $("#InputRide1").autocomplete({
+          source: availableTags
+        });
+        $("#InputRide2").autocomplete({
+          source: availableTags
+        });
+      });
+    </script>
+
+  </body>
+</html>

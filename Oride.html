@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Offer Ride</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="Carpool.css">
+<!--Data Time Class-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="jquery-1.12.4.js"></script>
+    <script src="jquery-ui.js"></script>
+
+    <style media="screen">
+        .error{
+          color: #FF0000;
+        }
+        #fixedbutton {
+          position: fixed;
+          bottom: -4px;
+          right: 10px;
+        }
+      </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light d-flex">
+
+        <a class="navbar-brand mr-auto p-2" href="LoginChoice.html">
+            <img src="Home.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Home </small>
+        </a>
+
+        <a class="navbar-brand" href="FRide.html">
+            <img src="Search.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Find a Ride</small>
+        </a>
+
+        <a class="navbar-brand" href="#">
+            <img src="Offer.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Offer a Ride</small>
+        </a>
+
+        <a class="navbar-brand" href="LoginChoice.html">
+            <img src="Login.jpg" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small>  &nbsp   Login </small>
+        </a>
+
+        <a class="navbar-brand" href="Signup.html">
+            <img src="Signup.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> &nbsp  Sign Up </small>
+        </a>
+
+        <a class="navbar-brand" href="Offers.html">
+            <img src="Specialoffer.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> &nbsp  Offers</small>
+        </a>
+
+    </nav>
+
+    <section class="container-fluid">
+        <section class="row justify-content-center">
+            <section class="col-12 col-sm-6 col-md-3">
+                <img src="Logo.webp" class="rounded mx-auto d-block" />
+
+                    <form class="form-container" name="findride" method="post" id="test" onsubmit="return offerridevalid()">
+
+                      <div class="form-group" id="FromPlace">
+                        <input type="text" class="form-control" id="InputRide1" name="OPlace1" placeholder="From where do You Want do You Leave?">
+                      </div>
+
+                      <div class="form-group" id="ToPlace">
+                        <input type="text" class="form-control" id="InputRide2" name="OPlace2" placeholder="Where do yo want to Go!">
+                      </div>
+
+                      <div class="form-row">
+
+                              <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="datepicker1" name="ODate1" placeholder="Departure date">
+                              </div>
+                              <div class="form-group col-md-3">
+                                  <select class="form-control" id="SelectDepHour" name="OHour1">
+                                    <option value=" " disabled selected>Hr</option>
+                                    <option >00</option>
+                                    <option >01</option>
+                                    <option >02</option>
+                                    <option >03</option>
+                                    <option >04</option>
+                                    <option >05</option>
+                                    <option >06</option>
+                                    <option >07</option>
+                                    <option >08</option>
+                                    <option >09</option>
+                                    <option >10</option>
+                                    <option >11</option>
+                                    <option >12</option>
+                                    <option >13</option>
+                                    <option >14</option>
+                                    <option >15</option>
+                                    <option >16</option>
+                                    <option >17</option>
+                                    <option >18</option>
+                                    <option >19</option>
+                                    <option >20</option>
+                                    <option >21</option>
+                                    <option >22</option>
+                                    <option >23</option>
+                                  </select>
+                              </div>
+                              <div class="form-group col-md-3">
+                                <select class="form-control" id="SelectDepMinutes" name="OMin1">
+                                  <option disabled selected>Min</option>
+                                  <option >10</option>
+                                  <option >20</option>
+                                  <option >30</option>
+                                  <option >40</option>
+                                  <option >50</option>
+                                </select>
+                              </div>
+
+                             <div class="form-group col-md-12" id="Seats">
+                                   <select class="form-control" id="SelectDepSeats" name="OSeat1">
+                                         <option disabled selected>Seats Availbility</option>
+                                         <option >1</option>
+                                         <option >2</option>
+                                         <option >3</option>
+                                         <option >4</option>
+                                   </select>
+                             </div>
+
+                           </div>
+
+                       <div class="form-row" id="rdtrip">
+
+                               <div class="form-group col-md-6">
+                                 <input type="text" class="form-control" id="datepicker2" name="ODate2" placeholder="Return date">
+                               </div>
+                               <div class="form-group col-md-3">
+                                   <select class="form-control" id="SelectRetHour" name="OHour2">
+                                     <option disabled selected>Hr</option>
+                                     <option >00</option>
+                                     <option >01</option>
+                                     <option >02</option>
+                                     <option >03</option>
+                                     <option >04</option>
+                                     <option >05</option>
+                                     <option >06</option>
+                                     <option >07</option>
+                                     <option >08</option>
+                                     <option >09</option>
+                                     <option >10</option>
+                                     <option >11</option>
+                                     <option >12</option>
+                                     <option >13</option>
+                                     <option >14</option>
+                                     <option >15</option>
+                                     <option >16</option>
+                                     <option >17</option>
+                                     <option >18</option>
+                                     <option >19</option>
+                                     <option >20</option>
+                                     <option >21</option>
+                                     <option >22</option>
+                                     <option >23</option>
+                                   </select>
+                               </div>
+                               <div class="form-group col-md-3">
+                                 <select class="form-control" id="SelectRetMinutes" name="OMin2">
+                                   <option disabled selected>Min</option>
+                                   <option >10</option>
+                                   <option >20</option>
+                                   <option >30</option>
+                                   <option >40</option>
+                                   <option >50</option>
+                                 </select>
+                               </div>
+
+                               <div class="form-group col-md-12" id="Seats">
+                                      <select class="form-control" id="SelectRetSeats" name="OSeat2">
+                                            <option disabled selected>Seats Availbility</option>
+                                            <option >1</option>
+                                            <option >2</option>
+                                            <option >3</option>
+                                            <option >4</option>
+                                      </select>
+                               </div>
+
+                      </div>
+
+
+                        <div class="form-group form-check">
+                          <small class="form-check-label form-text text-muted" for="roundcheck">
+                          <input type="checkbox" class="form-check-input" name="tripmssg" id="roundcheck" checked>Round Trip
+                          </small>
+                        </div>
+
+                      <button class="btn btn-primary btn-block">Offer Ride</button>
+
+                    </form>
+
+                    <div id="mybutton">
+                        <button class="btn btn-primary" id ="fixedbutton" data-toggle="tooltip" title="Login to Proceed" data-placement="bottom" onclick="location.href = 'Comment.html';">Leave Comment</button>
+                    </div>
+
+            </section>
+         </section>
+     </section>
+
+     <script type="text/javascript" src="jquery.js"></script>
+     <script src="jquery.validate.min.js"></script>
+     <script type="text/javascript" src="jquery-ui.js"></script>
+     <script type="text/javascript" src="Login.js"></script>
+
+     <script>
+     $(function() {
+        $("#roundcheck").on("click",function() {
+            $("#rdtrip").toggle(this.checked);
+        });
+     });
+     </script>
+
+     <script>
+     $(function(){
+       $("#datepicker1").datepicker();
+     });
+     </script>
+
+     <script>
+     $(function(){
+       $("#datepicker2").datepicker();
+     });
+     </script>
+
+     <script>
+     $(function() {
+         var availableTags = [
+           "Ariyalur",
+           "Chennai",
+           "Coimbatore",
+           "Cuddalore",
+           "Dharmapuri",
+           "Dindigul",
+           "Erode",
+           "Kanchipuram (Kancheepuram)",
+           "Kanniyakumari (Kanyakumari)",
+           "Karur",
+           "Krishnagiri",
+           "Madurai",
+           "Nagapattinam",
+           "Namakkal",
+           "Pudukkottai",
+           "Perambalur",
+           "Ramanathapuram",
+           "Salem",
+           "Sivaganga",
+           "Thanjavur",
+           "Theni",
+           "The Nilgiris",
+           "Thiruvallur (Tiruvallur)",
+           "Thiruvarur (Tiruvarur)",
+           "Thoothukkudi",
+           "Tirunelveli",
+           "Tiruchirappalli",
+           "Tiruppur",
+           "Tiruvannamalai",
+           "Vellore",
+           "Viluppuram",
+           "Virudhunagar",
+         ];
+         $("#InputRide1").autocomplete({
+           source: availableTags
+         });
+         $("#InputRide2").autocomplete({
+           source: availableTags
+         });
+       });
+     </script>
+
+
+  </body>
+</html>

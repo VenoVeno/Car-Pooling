@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Form validation using AngularJS</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style media="screen">
+      .ng-scope{
+        color: #FF0000;
+      }
+      label,h3{
+        color:black;
+      }
+        #fixedbutton {
+          position: fixed;
+          bottom: -4px;
+          right: 10px;
+        }
+    </style>
+  </head>
+  <body ng-app="app">
+    <section class="container-fluid">
+        <section class="row justify-content-center">
+            <section class="col-12 col-sm-6 col-md-3">
+              <img src="Logo.webp" class="rounded mx-auto d-block"/>
+
+      <form name="LoginForm" class="form-container" onsubmit="submitfeedback()">
+
+        <h3 class="form-group">Leave a Comment</h3>
+
+        <div class="row">
+
+          <div class="col">
+            <div class="form-group" id="Name">
+              <label for="InputName">Name (*)</label>
+              <input type="text" name="userFirstName" class="form-control" id="InputName" ng-model="firstName" required />
+              <div ng-messages="LoginForm.userFirstName.$error">
+                <div ng-message="required">This field is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group" id="Email">
+              <label for="InputEmail">Email Address(*)</label>
+              <input type="email" name="userEmail" class="form-control" id="InputEmail" ng-model="email" required />
+              <div ng-messages="LoginForm.userEmail.$error">
+                  <div ng-message="required">This field is required</div>
+                  <div ng-message="email">Your email address is invalid</div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+        <div class="form-group" id="Number" style="display: none">
+          <label for="InputNumber">Phone Number</label>
+          <input type="number" name="userPhoneNumber" class="form-control" id="InputNumber" ng-model="phoneNumber" ng-maxlength="10" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" required/>
+          <div ng-messages="LoginForm.userPhoneNumber.$error">
+              <div ng-message="pattern">Must be a valid 10 digit phone number</div>
+              <div ng-message="required">This field is required</div>
+              <div ng-message="maxlength">Mobile number should not exceed 10-digit</div>
+          </div>
+        </div>
+
+        <div class="form-group" id="Message">
+          <label for="InputMessage">User Message(*)</label>
+          <textarea type="textarea" name="userMessage" class="form-control" id="InputMessage" rows="4" ng-model="message" ng-minlength="25" ng-maxlength="100" required></textarea>
+          <div ng-messages="LoginForm.userMessage.$error">
+              <div ng-message="required">This field is required</div>
+              <div ng-message="minlength">Message must be over 25 characters</div>
+              <div ng-message="maxlength">Message must not exceed 100 characters</div>
+          </div>
+        </div>
+
+        <div class="form-group form-check">
+          <small class="form-check-label form-text text-muted" for="numbercheck">
+              <input type="checkbox" class="form-check-input" name="numbermssg" id="numbercheck">Receive Updates through mobile
+          </small>
+        </div>
+
+        <button ng-disabled="LoginForm.$invalid" class="btn btn-primary btn-block">Submit Feedback</button>
+
+        <div id="mybutton">
+            <button class="btn btn-primary" id ="fixedbutton" data-toggle="tooltip" title="Login to Proceed" data-placement="bottom" onclick="location.href = 'LoginChoice.html';">Back to Home</button>
+        </div>
+
+      </form>
+
+        </section>
+      </section>
+    </section>
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-messages.min.js"></script>
+    <script src="Comment.js"></script>
+
+    <script>
+    $(function() {
+       $("#numbercheck").on("click",function() {
+           $("#Number").toggle(this.checked);
+       });
+    });
+    </script>
+
+    <script>
+      function submitfeedback(){
+        console.log("Thanks for the feedback!");
+        window.location="FRide.html";
+      }
+    </script>
+
+  </body>
+</html>

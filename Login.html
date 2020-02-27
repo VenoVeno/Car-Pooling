@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Carpool.css">
+    <script src="Login.js"></script>
+    <style media="screen">
+      .error{
+        color: #FF0000;
+      }
+      label{
+        color:black;
+      }
+      .ng-scope{
+        color: #FF0000;
+      }
+      #loginerror{
+        color: #FF0000;
+      }
+      #fixedbutton {
+        position: fixed;
+        bottom: -4px;
+        right: 10px;
+      }
+    </style>
+  </head>
+
+  <body class="bg" ng-app="app">
+
+    <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-end">
+
+        <a class="navbar-brand mr-auto p-2" href="LoginChoice.html">
+          <img src="Home.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Home </small>
+        </a>
+
+        <a class="navbar-brand" href="FRide.html">
+            <img src="Search.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Find a Ride</small>
+        </a>
+
+        <a class="navbar-brand" href="Oride.html">
+            <img src="Offer.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Offer a Ride</small>
+        </a>
+
+        <a class="navbar-brand" href="LoginChoice.html">
+            <img src="Login.jpg" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small>  &nbsp   Login </small>
+        </a>
+
+        <a class="navbar-brand" href="Signup.html">
+            <img src="Signup.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> &nbsp  Sign Up </small>
+        </a>
+
+        <a class="navbar-brand" href="Offers.html">
+            <img src="Specialoffer.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> &nbsp  Offers</small>
+        </a>
+
+    </nav>
+
+      <section class="container-fluid">
+          <section class="row justify-content-center">
+              <section class="col-12 col-sm-6 col-md-3">
+                <img src="Logo.webp" class="rounded mx-auto d-block"/>
+
+      <form class="form-container" method="post" name="LoginForm" onsubmit="loginValid()">
+
+         <div class="form-group" id="Email">
+           <label for="InputEmail">Email Address(*)</label>
+           <input type="email" name="userEmail" class="form-control" id="InputEmail" ng-model="email" ng-required="true" />
+           <div ng-messages="LoginForm.userEmail.$error">
+               <div ng-message="required">This field is required</div>
+               <div ng-message="email">Your email address is invalid</div>
+           </div>
+         </div>
+
+         <div class="form-group" id="Password">
+           <label for="InputPassword">Password</label>
+           <input type="password" name="userPass" class="form-control" id="InputPass" ng-model="pass" ng-maxlength=20 ng-pattern="/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/" ng-required="true" />
+           <div ng-messages="LoginForm.userPass.$error">
+               <div ng-message="required">This field is required</div>
+               <div ng-message="pattern">Password should be at least 8 characters long and should contain
+                  one number,one character and one special character </div>
+               <div ng-message="maxlength">Password should not exceed 20 characters</div>
+            </div>
+         </div>
+
+         <button ng-disabled="LoginForm.$invalid" class="btn btn-primary btn-block" data-toggle="tooltip" title="Login to Proceed" data-placement="bottom">Login</button>
+
+         <div id="loginerror" class="form-group"></div>
+
+         <div class="form-group">
+           <small class="text-muted form-text text-center">
+              Not have an account yet?<a href="Signup.html">&nbsp Signup</a>
+           </small>
+         </div>
+         <div id="mybutton">
+             <button class="btn btn-primary" id ="fixedbutton" data-toggle="tooltip" title="Login to Proceed" data-placement="bottom" onclick="location.href = 'Comment.html';">Leave Comment</button>
+         </div>
+      </form>
+
+          </section>
+        </section>
+      </section>
+
+      <script src="Login.js"></script>
+      <script src="jquery.js"></script>
+      <script src="jquery.validate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-messages.min.js"></script>
+      <script src="Comment.js"></script>
+
+  </body>
+</html>

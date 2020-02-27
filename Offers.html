@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title></title>
+    <style media="screen">
+      #validity>h6{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light d-flex">
+
+        <a class="navbar-brand mr-auto p-2" href="LoginChoice.html">
+            <img src="Home.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Home </small>
+        </a>
+
+        <a class="navbar-brand" href="FRide.html">
+            <img src="Search.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Find a Ride</small>
+        </a>
+
+        <a class="navbar-brand" href="#">
+            <img src="Offer.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> Offer a Ride</small>
+        </a>
+
+        <a class="navbar-brand" href="LoginChoice.html">
+            <img src="Login.jpg" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small>  &nbsp   Login </small>
+        </a>
+
+        <a class="navbar-brand" href="Signup.html">
+            <img src="Signup.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> &nbsp  Sign Up </small>
+        </a>
+
+        <a class="navbar-brand" href="#">
+            <img src="Specialoffer.png" width="30" height="30" class="d-inline-block align-top rounded mx-auto d-block"><small> &nbsp  Offers</small>
+        </a>
+
+    </nav>
+
+    <section class="container-fluid">
+        <section class="row justify-content-center">
+            <section class="col-12 col-sm-6 col-md-3">
+                <img src="Logo.webp" class="rounded mx-auto d-block" />
+
+                    <div class="form-group text-center" ng-app = "offersApp" ng-controller = "offerController">
+                        <offer name = "offer1"></offer>
+                            <hr>
+                            <offer name = "offer5" id="validity"></offer>
+                            <hr>
+                        <img src="FirstOffer.png">
+                        <offer name = "offer2"></offer></br>
+                        <offer name = "offer3"></offer></br>
+                        <offer name = "offer4" id="validity"></offer>
+                    </div>
+
+                    <script>
+
+                    var offersApp= angular.module("offersApp", []);
+                    offersApp.directive('offer', function()
+                    {
+                          var directive = {};
+                          directive.restrict = 'E';
+                          directive.template = "<h6>{{offer.name}}</h6></br>";
+                          directive.scope =
+                          {
+                          offer: "=name"
+                          }
+                          directive.compile = function(element, attributes)
+                              {
+                              var linkFunction = function($scope, element, attributes)
+                                      {
+                                      element.html("<h6>"+$scope.offer.name +"</h6>");
+                                      element.css("background-color", "#ffffff");
+                                      }
+                              return linkFunction;
+                              }
+                    return directive;
+                    });
+
+                    offersApp.controller('offerController', function($scope)
+                    {
+                        $scope.offer1 = {};
+                        $scope.offer1.name = "50% OFF on on Your First Booking.";
+
+                        $scope.offer2 = {};
+                        $scope.offer2.name = "Use this code to enjoy 50% off on your First two rides.";
+
+                        $scope.offer3 = {};
+                        $scope.offer3.name = "USE PROMO CODE:FIRSTCAR50";
+
+                        $scope.offer4 = {};
+                        $scope.offer4.name = "Code Valid Till : Sept-10-2019";
+
+                        $scope.offer5 = {};
+                        $scope.offer5.name = "Limited Time Only";
+                    });
+
+                    </script>
+             </section>
+          </section>
+      </section>
+   </body>
+</html>
